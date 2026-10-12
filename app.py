@@ -9,7 +9,7 @@ st.set_page_config(page_title="Dashboard | Dossiers administratifs", page_icon="
 st.title("📊 Tableau de bord — Traitement des dossiers administratifs")
 st.caption("Service administratif fictif · Janvier–août 2026")
 
-DEFAULT_FILE = "04_Finance_Administration_Juridique(1).xlsx"
+DEFAULT_FILE = "donnees.xlsx"
 
 @st.cache_data
 def load_data(file_bytes):
@@ -145,3 +145,5 @@ with st.expander("Voir les données filtrées"):
     st.download_button("Télécharger les données filtrées (CSV)", filtered.to_csv(index=False).encode("utf-8-sig"), "dossiers_filtres.csv", "text/csv")
 
 st.caption("Source : fichier pédagogique fictif. Les valeurs manquantes de durée et de coût des dossiers ouverts sont conservées comme manquantes, jamais remplacées par zéro.")
+df = pd.read_excel("donnees.xlsx")
+
